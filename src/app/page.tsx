@@ -1,5 +1,5 @@
 'use client';
-import { SliderBanner, Sidebar } from '@/components/home';
+import { SliderBanner,Sidebar } from '@/components/home';
 import { Tabs, ListProduct } from '@/components/shared';
 import Image from 'next/image';
 import products from '@/data/products.json';
@@ -15,7 +15,6 @@ export default function Home() {
   const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-
   }, [isVisible]);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,17 +41,9 @@ export default function Home() {
   });
   return (
     <>
-      <div className="flex flex-row w-full h-screen">
-        <div className="w-1/5 h-full overflow-y-auto">
-        <aside className="w-[250px] bg-white overflow-y-auto border-r">
-          <Sidebar></Sidebar>
-          </aside>
-        </div>
-
-        <main className="flex-1 overflow-y-auto">
-        <div className="w-4/5 h-full overflow-y-auto">
-                <SliderBanner >
-        <div className='w-full h-full flex flex-row shrink-0 gap-3'>`
+    <Sidebar></Sidebar>
+      <SliderBanner >
+        <div className='w-full h-full flex flex-row shrink-0 gap-3'>
           <div className='w-1/2 h-full relative'>
             <Image
               className='rounded-lg'
@@ -71,15 +62,6 @@ export default function Home() {
               alt=''
             />
           </div>
-          {/* <div className='w-1/2 h-full relative'>
-            <Image
-              className='rounded-lg'
-              src='/banner-3-2.webp'
-              fill
-              unoptimized
-              alt=''
-            />
-          </div> */}
         </div>
 
         <div className='w-full h-full flex flex-row shrink-0 gap-3'>
@@ -101,15 +83,6 @@ export default function Home() {
               alt=''
             />
           </div>
-          {/* <div className='w-1/2 h-full relative'>
-            <Image
-              className='rounded-lg'
-              src='/banner-3-1.webp'
-              fill
-              unoptimized
-              alt=''
-            />
-          </div> */}
         </div>
 
         <div className='w-full h-full flex flex-row shrink-0 gap-3'>
@@ -133,7 +106,8 @@ export default function Home() {
           </div>
         </div>
       </SliderBanner>
-      <div className='bg-white h-32 rounded-lg flex flex-row gap-5 justify-center pt-4 mb-3'>
+
+      <div className='bg-white h-32 w-2/3 rounded-lg flex flex-row gap-5 justify-center pt-4 mb-3'>
         <a className='flex flex-col items-center  text-sm font-medium gap-2 max-w-24'>
           <Image
             className='rounded-xl border border-gray-200'
@@ -254,7 +228,7 @@ export default function Home() {
         </a>
       </div>
 
-      <div className='relative rounded-lg mb-4 flex flex-col' ref={targetRef}>
+      <div className='relative rounded-lg mb-4 w-2/3 flex flex-col' ref={targetRef}>
         <div className='bg-white rounded-tl-xl rounded-tr-xl pr-1 pt-4 mb-2'>
           <span className='font-semibold text-md ml-3'>Gợi ý hôm nay</span>
           <div className='flex flex-row mt-5'>
@@ -291,14 +265,6 @@ export default function Home() {
           Xem Thêm
         </div>
       </div>
-        </div>
-        </main>
-      </div>
-
-
-
-      
-
     </>
   );
 }
